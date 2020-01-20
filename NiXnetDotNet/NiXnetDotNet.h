@@ -37,6 +37,36 @@ namespace NiXnetDotNet {
       CAN = nxProtocol_CAN,
       FlexRay = nxProtocol_FlexRay,
       LIN = nxProtocol_LIN,
+      Ethernet = nxProtocol_Ethernet,
+      Unknown = nxProtocol_Unknown
+   };
+
+   public enum class NiXnetCANIoMode : u32
+   {
+       CAN = nxCANioMode_CAN,
+       CANFD = nxCANioMode_CAN_FD,
+       CANFDBRS = nxCANioMode_CAN_FD_BRS
+   };
+   public enum class NiXnetCANTimingType : u32
+   {
+       CyclicData = nxFrmCANTiming_CyclicData,
+       CyclicEvent = nxFrmCANTiming_CyclicEvent,
+       CyclicRemote = nxFrmCANTiming_CyclicRemote,
+       EventData = nxFrmCANTiming_EventData,
+       EventRemote = nxFrmCANTiming_EventRemote
+   };
+
+   public enum class NiXnetAppProtocol:u32
+   {
+       None = nxAppProtocol_None,
+       J1939 = nxAppProtocol_J1939
+   };
+
+   public enum class NiXnetFdIsoMode:u32
+   {
+       ISO = nxCanFdMode_ISO,
+       NonISO = nxCanFdMode_NonISO,
+       ISOLegacy = nxCanFdMode_ISO_Legacy
    };
 
    public enum class NiXnetLinProtocolVersion : u32
@@ -45,6 +75,7 @@ namespace NiXnetDotNet {
       Ver_1_3 = nxLINProtocolVer_1_3,
       Ver_2_0 = nxLINProtocolVer_2_0,
       Ver_2_1 = nxLINProtocolVer_2_1,
+      Ver_2_2 = nxLINProtocolVer_2_2
    };
 
    public enum class NiXnetByteOrder : u32
@@ -129,6 +160,10 @@ namespace NiXnetDotNet {
       property NetString ProductName { NetString get(); }
       property u32 ProductNumber { u32 get(); }
       property u32 SerialNumber { u32 get(); }
+      property u32 SlotNumber {u32 get(); }
+      property u32 NumPorts {u32 get(); }
+      property u32 NumPortsAll {u32 get(); }
+      property u32 FormFac {u32 get(); }
       property cli::array<NiXnetInterface^>^ Interfaces { cli::array<NiXnetInterface^>^ get(); }
 
       virtual NetString ToString() override;
@@ -168,6 +203,8 @@ namespace NiXnetDotNet {
       property double ScalingFactor { double get();  }
       property double ScalingOffset { double get();  }
       property NetString Unit { NetString get();  }
+      property NetString Comment {NetString get(); }
+      property i32 ConfigStatus {i32 get(); }
       virtual NetString ToString() override;
    };
 
@@ -183,6 +220,13 @@ namespace NiXnetDotNet {
       property NetString Name { NetString get();  }
       property u32 Identifier { u32 get();  }
       property cli::array<NiXnetSignal^>^ Signals { cli::array<NiXnetSignal^>^ get(); }
+      property NetString Comment { NetString get();  }
+      property u32 ConfigStatus { u32 get();  }
+      property bool CANExtID {bool get(); }
+      property NiXnetCANTimingType CANTimingType {NiXnetCANTimingType get(); }
+      property f64 CANTxTime {f64 get(); }
+      property NiXnetCANIoMode CANIoMode {NiXnetCANIoMode get(); }
+
       virtual NetString ToString() override;
    };
 
@@ -200,6 +244,8 @@ namespace NiXnetDotNet {
       property cli::array<NiXnetFrame^>^ FramesTansmitted { cli::array<NiXnetFrame^>^ get(); }
       property bool LinMaster { bool get();  }
       property NiXnetLinProtocolVersion LinVersion { NiXnetLinProtocolVersion get();  }
+      property NetString Comment { NetString get();  }
+      property u32 ConfigStatus { u32 get();  }
       virtual NetString ToString() override;
    };
 
@@ -227,12 +273,24 @@ namespace NiXnetDotNet {
       NiXnetCluster(nxDatabaseRef_t _handle);
 
    public:
-      property NetString Name { NetString get(); }
-      property NiXnetProtocol Protocol { NiXnetProtocol get(); }
+      property NiXnetAppProtocol AppProtocol {NiXnetAppProtocol get(); }
+      property u64 BaudRate {u64 get(); }
+      property NetString Comment {NetString get(); }
+      property i32 ConfigStatus {i32 get(); }
+      //database
       property cli::array<NiXnetEcu^>^ Ecus { cli::array<NiXnetEcu^>^ get(); }
       property cli::array<NiXnetFrame^>^ Frames { cli::array<NiXnetFrame^>^ get(); }
+      property NetString Name { NetString get(); }
+      //pdus
+      property bool PdusReqd {bool get(); }
+      property NiXnetProtocol Protocol { NiXnetProtocol get(); }
       property cli::array<NiXnetSignal^>^ Signals { cli::array<NiXnetSignal^>^ get(); }
+      property u64 FDBaudRate {u64 get(); }
+      property NiXnetCANIoMode CANIoMode { NiXnetCANIoMode get(); }
+      property NiXnetFdIsoMode CANFdIsoMode {NiXnetFdIsoMode get(); }
+
       property cli::array<NiXnetLinSchedule^>^ LinSchedules { cli::array<NiXnetLinSchedule^>^ get(); }
+      property f64 LinTick {f64 get(); }
       virtual NetString ToString() override;
    };
 

@@ -68,6 +68,16 @@ NetString NiXnetSignal::Unit::get()
 {
    return NiXnet::GetDbStringValue(m_handle, nxPropSig_Unit);
 }
+NetString NiXnetSignal::Comment::get()
+{
+    return NiXnet::GetDbStringValue(m_handle, nxPropSig_Comment);
+}
+
+i32 NiXnetSignal::ConfigStatus::get()
+{
+    return NiXnet::GetDbValue<i32>(m_handle, nxPropSig_ConfigStatus);
+}
+
 
 NetString NiXnetSignal::ToString()
 {

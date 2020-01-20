@@ -1,0 +1,227 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly NiXnetDotNet, Version=1.0.*, Culture=固定语言(固定国家/地区): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class NiXnetDotNet.NiXnet: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class NiXnetDotNet.NiXnetInterface: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    NiXnetDotNet.NiXnetProtocol Protocol 'get ' : 
+    UInt32 PortNumber 'get ' : 
+    UInt32 Number 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Number(): PrivateScope, Public, HideBySig, SpecialName
+    get_PortNumber(): PrivateScope, Public, HideBySig, SpecialName
+    get_Protocol(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetDevice: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    NiXnetDotNet.NiXnetInterface[] Interfaces 'get ' : 
+    UInt32 SerialNumber 'get ' : 
+    UInt32 ProductNumber 'get ' : 
+    System.String ProductName 'get ' : 
+  Methods:
+    get_ProductName(): PrivateScope, Public, HideBySig, SpecialName
+    get_ProductNumber(): PrivateScope, Public, HideBySig, SpecialName
+    get_SerialNumber(): PrivateScope, Public, HideBySig, SpecialName
+    get_Interfaces(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetSystem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    NiXnetDotNet.NiXnetInterface[] Interfaces 'get ' : 
+  Methods:
+    ListDevices(): PrivateScope, Public, HideBySig
+    get_Interfaces(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetSignal: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    System.String Unit 'get ' : 
+    Double ScalingOffset 'get ' : 
+    Double ScalingFactor 'get ' : 
+    UInt32 NumberOfBits 'get ' : 
+    UInt32 StartBit 'get ' : 
+    Double MinimumValue 'get ' : 
+    Double MaximumValue 'get ' : 
+    Double DefaultValue 'get ' : 
+    NiXnetDotNet.NiXnetDataType DataType 'get ' : 
+    NiXnetDotNet.NiXnetByteOrder ByteOrder 'get ' : 
+    System.String UniqueName 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_UniqueName(): PrivateScope, Public, HideBySig, SpecialName
+    get_ByteOrder(): PrivateScope, Public, HideBySig, SpecialName
+    get_DataType(): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultValue(): PrivateScope, Public, HideBySig, SpecialName
+    get_MaximumValue(): PrivateScope, Public, HideBySig, SpecialName
+    get_MinimumValue(): PrivateScope, Public, HideBySig, SpecialName
+    get_StartBit(): PrivateScope, Public, HideBySig, SpecialName
+    get_NumberOfBits(): PrivateScope, Public, HideBySig, SpecialName
+    get_ScalingFactor(): PrivateScope, Public, HideBySig, SpecialName
+    get_ScalingOffset(): PrivateScope, Public, HideBySig, SpecialName
+    get_Unit(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetFrame: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    NiXnetDotNet.NiXnetSignal[] Signals 'get ' : 
+    UInt32 Identifier 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Identifier(): PrivateScope, Public, HideBySig, SpecialName
+    get_Signals(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetEcu: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    NiXnetDotNet.NiXnetLinProtocolVersion LinVersion 'get ' : 
+    Boolean LinMaster 'get ' : 
+    NiXnetDotNet.NiXnetFrame[] FramesTansmitted 'get ' : 
+    NiXnetDotNet.NiXnetFrame[] FramesReceived 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_FramesReceived(): PrivateScope, Public, HideBySig, SpecialName
+    get_FramesTansmitted(): PrivateScope, Public, HideBySig, SpecialName
+    get_LinMaster(): PrivateScope, Public, HideBySig, SpecialName
+    get_LinVersion(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetLinSchedule: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    NiXnetDotNet.NiXnetLinScheduleRunMode RunMode 'get ' : 
+    System.String Priority 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Priority(): PrivateScope, Public, HideBySig, SpecialName
+    get_RunMode(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetCluster: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Properties:
+    NiXnetDotNet.NiXnetLinSchedule[] LinSchedules 'get ' : 
+    NiXnetDotNet.NiXnetSignal[] Signals 'get ' : 
+    NiXnetDotNet.NiXnetFrame[] Frames 'get ' : 
+    NiXnetDotNet.NiXnetEcu[] Ecus 'get ' : 
+    NiXnetDotNet.NiXnetProtocol Protocol 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    get_Protocol(): PrivateScope, Public, HideBySig, SpecialName
+    get_Ecus(): PrivateScope, Public, HideBySig, SpecialName
+    get_Frames(): PrivateScope, Public, HideBySig, SpecialName
+    get_Signals(): PrivateScope, Public, HideBySig, SpecialName
+    get_LinSchedules(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetDataBase: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    NiXnetDotNet.NiXnetCluster[] Clusters 'get ' : 
+  Methods:
+    get_Clusters(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class NiXnetDotNet.NiXnetSession: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(NiXnetDotNet.NiXnetSignal[], System.String, NiXnetDotNet.NiXnetMode): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String, System.String, System.String[], System.String, NiXnetDotNet.NiXnetMode): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    UInt32 LinScheduleIndex 'set' : 
+    NiXnetDotNet.NiXnetLinSleep LinSleep 'set' : 
+    System.String[] LinScheduleNames 'get ' : 
+    Boolean LinMaster 'get set' : 
+    System.String[] FramesOrSignals 'get ' : 
+    UInt32 NumberOfFramesOrSignals 'get ' : 
+  Methods:
+    Start(NiXnetScope): PrivateScope, Public, HideBySig
+    Stop(NiXnetScope): PrivateScope, Public, HideBySig
+    get_NumberOfFramesOrSignals(): PrivateScope, Public, HideBySig, SpecialName
+    get_FramesOrSignals(): PrivateScope, Public, HideBySig, SpecialName
+    get_LinMaster(): PrivateScope, Public, HideBySig, SpecialName
+    set_LinMaster(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_LinScheduleNames(): PrivateScope, Public, HideBySig, SpecialName
+    set_LinSleep(NiXnetLinSleep): PrivateScope, Public, HideBySig, SpecialName
+    set_LinScheduleIndex(UInt32): PrivateScope, Public, HideBySig, SpecialName
+    ReadSignalSinglePoint(): PrivateScope, Public, HideBySig
+    WriteSignalSinglePoint(Double[]): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct NiXnetDotNet.NiXnetProtocol: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetProtocol CAN = 0 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetProtocol FlexRay = 1 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetProtocol LIN = 2 : Public, Static, Literal, HasDefault
+Struct NiXnetDotNet.NiXnetLinProtocolVersion: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetLinProtocolVersion Ver_1_2 = 2 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinProtocolVersion Ver_1_3 = 3 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinProtocolVersion Ver_2_0 = 4 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinProtocolVersion Ver_2_1 = 5 : Public, Static, Literal, HasDefault
+Struct NiXnetDotNet.NiXnetByteOrder: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetByteOrder LittleEndian = 0 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetByteOrder BigEndian = 1 : Public, Static, Literal, HasDefault
+Struct NiXnetDotNet.NiXnetMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetMode SignalInSinglePoint = 0 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode SignalOutSinglePoint = 3 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode SignalInWaveform = 1 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode SignalOutWaveform = 4 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode SignalInXY = 2 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode SignalOutXY = 5 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode FrameInStream = 6 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode FrameOutStream = 9 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode FrameInQueued = 7 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode FrameOutQueued = 10 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode FrameInSinglePoint = 8 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode FrameOutSinglePoint = 11 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetMode SignalConversionSinglePoint = 12 : Public, Static, Literal, HasDefault
+Struct NiXnetDotNet.NiXnetDataType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetDataType Signed = 0 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetDataType Unsigned = 1 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetDataType IEEEFloat = 2 : Public, Static, Literal, HasDefault
+Struct NiXnetDotNet.NiXnetScope: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetScope Normal = 0 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetScope SessionOnly = 1 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetScope InterfaceOnly = 2 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetScope SessionOnlyBlocking = 3 : Public, Static, Literal, HasDefault
+Struct NiXnetDotNet.NiXnetLinScheduleRunMode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetLinScheduleRunMode Continous = 0 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinScheduleRunMode Once = 1 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinScheduleRunMode Null = 2 : Public, Static, Literal, HasDefault
+Struct NiXnetDotNet.NiXnetLinSleep: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt32 value__ : Public, SpecialName, RTSpecialName
+    NiXnetDotNet.NiXnetLinSleep RemoteSleep = 0 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinSleep RemoteWake = 1 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinSleep LocalSleep = 2 : Public, Static, Literal, HasDefault
+    NiXnetDotNet.NiXnetLinSleep LocalWake = 3 : Public, Static, Literal, HasDefault

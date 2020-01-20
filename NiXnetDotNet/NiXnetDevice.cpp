@@ -23,6 +23,26 @@ u32 NiXnetDevice::SerialNumber::get()
    return NiXnet::GetValue<u32>(m_handle, nxPropDev_SerNum);
 }
 
+u32 NiXnetDevice::SlotNumber::get()
+{
+    return NiXnet::GetValue<u32>(m_handle, nxPropDev_SlotNum);
+}
+
+u32 NiXnetDevice::NumPorts::get()
+{
+    return NiXnet::GetValue<u32>(m_handle, nxPropDev_NumPorts);
+}
+
+u32 NiXnetDevice::NumPortsAll::get()
+{
+    return NiXnet::GetValue<u32>(m_handle, nxPropDev_NumPortsAll);
+}
+
+u32 NiXnetDevice::FormFac::get()
+{
+    return NiXnet::GetValue<u32>(m_handle, nxPropDev_FormFac);
+}
+
 cli::array<NiXnetInterface^>^ NiXnetDevice::Interfaces::get()
 {
    cli::array<u32>^ handles = NiXnet::GetArrayValue<u32>(m_handle, nxPropDev_IntfRefs);

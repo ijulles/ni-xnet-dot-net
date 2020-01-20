@@ -45,6 +45,16 @@ NiXnetLinProtocolVersion NiXnetEcu::LinVersion::get()
    return static_cast<NiXnetLinProtocolVersion>(NiXnet::GetDbValue<u32>(m_handle, nxPropECU_LINProtocolVer));
 }
 
+NetString NiXnetEcu::Comment::get()
+{
+    return NiXnet::GetDbStringValue(m_handle, nxPropECU_Comment);
+}
+
+u32 NiXnetEcu::ConfigStatus::get()
+{
+    return NiXnet::GetDbValue<u32>(m_handle, nxPropECU_ConfigStatus);
+}
+
 NetString NiXnetEcu::ToString()
 {
    return this->Name;
